@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://maxcdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parasela de pagos</title>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Recupera los datos del sessionStorage
+          var datosString = sessionStorage.getItem('carrito');
+          var valortotal = sessionStorage.getItem('valortotal');
+          var summary = document.getElementById('summary');
+          summary.innerHTML= `
+          <div class="columnas">
+          <h2>Valor Total:$${valortotal}</h2>
+          </div>
+          `;
+
+          if (datosString) {
+            var datos = JSON.parse(datosString);
+            mostrarDatos(datos);
+          } else {
+            // Si no hay datos en sessionStorage, muestra un mensaje
+            document.getElementById('contenido').innerHTML = 'No hay datos guardados.';
+          }
+        });
+      
+        function mostrarDatos(datos) {
+          // Muestra los datos en la interfaz
+          var contenido = document.getElementById('contenido');
+                
+          // Itera sobre los productos en el carrito
+          datos.forEach(function(producto) {
+            contenido.innerHTML += `
+            <div class="columnas">
+            <div><p>Producto: ${producto.nombre}</p></div>
+            <div>           
+            <p>Valor: $${producto.precio}</p>
+            </div>
+            <div>            
+            `;
+          });
+        }
+           
+      </script>
+</head>
+<header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+              <section class="logo"><img src="./img/logo.png" class="logo__img"></section>
+            <h3 class="nav col 12 col-lg-auto me-lg-auto mb-2 content-center mb-md-0">ECOCREATIVOS</h3>
+            &nbsp;
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="index.html" class="nav-link px-2 text-white">Inicio</a></li>
+              <li><a href="" class="nav-link px-2 text-white">Quienes somos</a></li>
+              <li><a href="" class="nav-link px-2 text-white">Consultas</a></li>
+              <li><a href="" class="nav-link px-2 text-white">Contactanos</a></li>
+              <li><a href="tienda.html" class="nav-link px-2 text-white">Tiendas</a></li>
+            </ul>
+    
+            <div class="logins">
+              <a  href="ingreso.html"type="button" class="btn btn-outline-light me-2">Ingresar</a>
+              <a  href="registro.html"type="button" class="btn btn-warning">Registrarse</a>
+              <a class="bi bi-cart3" href="micarrito.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+</header>
+
+<head>
+ 
+</head>
+<body>
+    <div class="columnas"><h1>Detalle de Facturación</h1></div>
+    
+    <div id="contenido"></div>
+    <div id="summary"></div>
+    <style>
+        .contenedor {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh; /* Ajusta la altura según tus necesidades */
+        }
+      
+        .columnas {
+          border: 1px solid #ccc;
+          padding: 20px;
+          text-align: center;
+        }
+      </style>
+</body>
+</html>

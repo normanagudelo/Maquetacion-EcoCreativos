@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Index</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <link href="https://maxcdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        // Recupera los datos del sessionStorage
+        var valorCorreoString = sessionStorage.getItem('valorCorreo');
+        var usuarioConexion = document.getElementById('usuarioConexion');
+        usuarioConexion.innerHTML= `
+        <div class="columnas">
+        <h2>Conectado como ${valorCorreoString}</h2>
+        </div>
+        `;})
+    </script>
+</head>
+<header class="p-3 bg-dark text-white">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+              <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"></use></svg>
+            </a>
+              <section class="logo"><img src="./img/logo.png" class="logo__img"></section>
+            <h3 class="nav col 12 col-lg-auto me-lg-auto mb-2 content-center mb-md-0">ECOCREATIVOS</h3>
+            &nbsp;
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="index.html" class="nav-link px-2 text-white">Inicio</a></li>
+              <li><a href="" class="nav-link px-2 text-white">Quienes somos</a></li>
+              <li><a href="" class="nav-link px-2 text-white">Consultas</a></li>
+              <li><a href="" class="nav-link px-2 text-white">Contactanos</a></li>
+              <li><a href="tienda.html" class="nav-link px-2 text-white">Tiendas</a></li>
+            </ul>
+    
+            <div class="logins">
+              <a  href="ingreso.html"type="button" class="btn btn-outline-light me-2">Ingresar</a>
+              <a  href="registro.html"type="button" class="btn btn-warning">Registrarse</a>
+              <a class="bi bi-cart3" href="micarrito.html">
+                <svg xmlns="http://www.w3.org/2000/svg" width="50" height="30" fill="currentColor" class="bi bi-cart3" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+</header>
+
+<body>
+<head>
+<!-- Add these links in the head of your HTML document -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+</head>
+<!-- Container -->
+<div class="container">
+
+  <!-- Main Content-->
+  <br>
+  <br>
+  <br>
+  <div id="usuarioConexion"></div>
+  <h1>Busqueda de producto</h1>
+  <div class="masthead">
+    
+<input type="text" id="buscar" onkeyup="buscar()" placeholder="Buscar en tabla" title="Empieza a escribir para buscar">
+
+    <div class="table-responsive">
+      <table class="table" id="tabla" data-sort="table">
+        <thead>
+          <tr>
+            <th>Referencia</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Stock</th>
+            <th>Precio</th>
+            <th>Compra</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope=row>102</th>
+            <td>Lámpara LED de Bambú</td>
+            <td>Bambú sostenible</td>
+            <td>20 unidades</td>
+            <td>$40</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(102, 'Lámpara LED de Bambú', 40)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+            <th scope=row>103</th>
+            <td>Organizador de Escritorio Ecológico</td>
+            <td>Madera reciclada</td>
+            <td>30 unidades</td>
+            <td>$25</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(103, 'Organizador de Escritorio Ecológico', 25)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+            <th scope=row>104</th>
+            <td>Cuaderno Eco-Friendly</td>
+            <td>Páginas recicladas</td>
+            <td>100 unidades</td>
+            <td>$8</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(104, 'Cuaderno Eco-Friendly', 8)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+            <th scope=row>105</th>
+            <td>Taza de Café Reutilizable</td>
+            <td>Plástico reciclado</td>
+            <td>40 unidades</td>
+            <td>$12</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(105, 'Taza de Café Reutilizable', 12)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+            <th scope=row>106</th>
+            <td>Alfombra Sostenible para Oficina</td>
+            <td>Fibras naturales</td>
+            <td>15 unidades</td>
+            <td>$30</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(106, 'Alfombra Sostenible para Oficina', 30)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+            <th scope=row>107</th>
+            <td>Porta Tarjetas de Visita Reciclado</td>
+            <td>Metal reciclado</td>
+            <td>25 unidades</td>
+            <td>$18</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(107, 'Porta Tarjetas de Visita Reciclado', 18)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+            <th scope=row>108</th>
+            <td>Carpeta Ecológica</td>
+            <td>Materiales biodegradables</td>
+            <td>35 unidades</td>
+            <td>$22</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(108, 'Carpeta Ecológica', 22)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+            <th scope=row>109</th>
+            <td>Calculadora Solar</td>
+            <td>Plástico reciclable</td>
+            <td>18 unidades</td>
+            <td>$15</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(109, 'Calculadora Solar', 15)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+            <th scope=row>1010</th>
+            <td>Set de Cubiertos de Bambú</td>
+            <td>Bambú sostenible</td>
+            <td>50 unidades</td>
+            <td>$28</td>
+            <td><button class="agregar-btn" onclick="agregarAlCarrito(1010, 'Set de Cubiertos de Bambú', 28)">Agregar al carrito</button></td>
+        </tr>
+        <tr>
+          <th scope=row>1011</th>
+          <td>Bolígrafos Reciclados</td>
+          <td>Materiales reciclados</td>
+          <td>10 unidades</td>
+          <td>$12</td>
+          <td><button class="agregar-btn" onclick="agregarAlCarrito(1011, 'Bolígrafos Reciclados', 12)">Agregar al carrito</button></td>
+        </tr> 
+        <tr>
+          
+           <th scope=row>1012</th>
+           <td>Libreta de Papel Reciclado</td>
+           <td>Papel 100% reciclado</td>
+           <td>50 hojas</td>
+           <td>$18</td>
+           <td><button class="agregar-btn" onclick="agregarAlCarrito(1012, 'Libreta Reciclada', 18)">Agregar al carrito</button></td>
+          </tr> 
+           <tr>
+          
+           <th scope=row>1013</th>
+           <td>Taza de Bambú</td>
+           <td>Materiales biodegradables</td>
+           <td>10 unidades</td>
+           <td>$15</td>
+           <td><button class="agregar-btn" onclick="agregarAlCarrito(1013, 'Taza de Bambú', 15)">Agregar al carrito</button></td>
+          </tr> 
+           <tr>
+          
+           <th scope=row>1014</th>
+           <td>Kit de Cubiertos de Bambú</td>
+           <td>Bambú orgánico</td>
+           <td>10 unidades</td>
+           <td>$20</td>
+           <td><button class="agregar-btn" onclick="agregarAlCarrito(1014, 'Kit de Cubiertos de Bambú', 20)">Agregar al carrito</button></td>
+          </tr> 
+           <tr>
+          
+           <th scope=row>1015</th>
+           <td>Pañuelos de Papel Reciclado</td>
+           <td>Papel reciclado sin blanquear</td>
+           <td>15 unidades</td>
+           <td>$8</td>
+           <td><button class="agregar-btn" onclick="agregarAlCarrito(1015, 'Pañuelos Reciclados', 8)">Agregar al carrito</button></td>
+          </tr> 
+           <tr>
+          
+           <th scope=row>1016</th>
+           <td>Cuaderno Ecológico</td>
+           <td>Papel certificado FSC</td>
+           <td>20 unidades</td>
+           <td>$15</td>
+           <td><button class="agregar-btn" onclick="agregarAlCarrito(1016, 'Cuaderno Ecológico', 15)">Agregar al carrito</button></td>
+          </tr> 
+           <tr>
+          
+           <th scope=row>1017</th>
+           <td>Estuche de Tela Reciclada</td>
+           <td>Tela de PET reciclado</td>
+           <td>30 unidades</td>
+           <td>$10</td>
+           <td><button class="agregar-btn" onclick="agregarAlCarrito(1017, 'Estuche Reciclado', 10)">Agregar al carrito</button></td>
+          </tr> 
+           <tr>
+          
+           <th scope=row>1018</th>
+           <td>Agenda Sostenible</td>
+           <td>Cubierta de cartón reciclado</td>
+           <td>35 unidades</td>
+           <td>$25</td>
+           <td><button class="agregar-btn" onclick="agregarAlCarrito(1018, 'Agenda Sostenible', 25)">Agregar al carrito</button></td>
+          </tr> 
+           <tr>
+          
+           <th scope=row>1019</th>
+           <td>Botella de Agua Reutilizable</td>
+           <td>Plástico libre de BPA</td>
+           <td>40 unidades</td>
+           <td>$12</td>
+           <td><button class="agregar-btn" onclick="agregarAlCarrito(1019, 'Botella Reutilizable', 12)">Agregar al carrito</button></td>
+          </tr> 
+           <tr>
+          
+          <th scope=row>1020</th>
+          <td>Set de Papel de Regalo Reciclado</td>
+          <td>Papel reciclado y biodegradable</td>
+          <td>50 unidades</td>
+          <td>$18</td>
+          <td><button class="agregar-btn" onclick="agregarAlCarrito(1020, 'Set de Papel Reciclado', 18)">Agregar al carrito</button></td>
+             </tr> 
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <title>Carrito de Compras</title>
+  <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+
+    #usuarioConexion {
+    text-align: left; /* Alinea el texto a la izquierda */
+    color: grey; /* Cambia el color del texto a gris */
+    }
+    h2 {
+        text-align: center;
+    }
+
+    #carrito-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-top: 20px;
+    }
+
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    .eliminar-btn {
+        position: fixed;
+        top: 10px; /* Ajusta la posición superior según tus necesidades */
+        right: 10px; /* Ajusta la posición derecha según tus necesidades */
+        z-index: 999; /* Ajusta la capa z-index según sea necesario */
+    }
+
+    #total {
+        margin-top: 10px;
+        font-weight: bold;
+    }
+
+    button {
+        padding: 5px 10px;
+        cursor: pointer;
+        border-radius: 20px; /* Agrega esquinas redondeadas */
+        background-color: #ffd700; /* Color amarillo pastel */
+        border: 1px solid #ffd700; /* Borde del mismo color que el fondo inicial */
+        transition: background-color 0.3s ease; /* Transición suave del color de fondo */
+      }
+
+     button:hover,
+      button:active {
+        background-color: #00ff00; /* Cambia el color a verde al pasar el ratón y al hacer clic */
+      }
+
+      h1.text-center {
+        text-align: center;
+        line-height: 2.5;
+        padding: 60px;
+      }
+      /* Agrega este estilo CSS al final de tu hoja de estilos */
+    .agregar-btn.clicked {
+    background-color: #00ff00; /* Cambia el color a verde */
+    border: 1px solid #00ff00; /* Borde del mismo color que el fondo */
+}
+</style>
+
+<div id="carrito-container">
+  <h2>Carrito de Compras</h2>
+  <ul id="carrito-lista"></ul>
+  <div id="total">Total: $0.00</div>
+  <button onclick="pagar()">Enviar a Carrito</button>
+</div>
+
+<script>
+  // Array para almacenar los productos en el carrito
+  const carrito = [];
+
+// Array para almacenar el stock de cada producto
+const stock = {
+    102: 20,
+    103: 30,
+    104: 100,
+    105: 40,
+    106: 15,
+    107: 25,
+    108: 35,
+    109: 18,
+    1010: 50,
+    1011: 10,
+    1012: 50,
+    1013: 10,
+    1014: 15,
+    1015: 20,
+    1016: 30,
+    1017: 35,
+    1018: 40,
+    1019: 50,
+    1020: 60,
+  };
+
+  // Función para agregar un producto al carrito
+  function agregarAlCarrito(id, nombre, precio) {
+    if (stock[id] > 0) {
+          const producto = {
+              id: id,
+              nombre: nombre,
+              precio: precio
+          };
+
+      carrito.push(producto);
+
+       // Reduce el stock del producto
+       stock[id]--;
+
+      // Actualiza la lista del carrito
+      mostrarCarrito();
+
+      // Agrega la clase 'clicked' al botón
+      const btn = event.currentTarget; // Obtiene el botón que ha sido clicado
+          btn.classList.add('clicked');
+      }
+    
+    };
+  
+  // Función para eliminar un producto del carrito
+  function eliminarDelCarrito(index) {
+      const id = carrito[index].id;
+
+      // Aumenta el stock del producto eliminado
+      stock[id]++;
+
+      carrito.splice(index, 1);
+
+      // Actualiza la lista del carrito
+      mostrarCarrito();
+  }
+  // Función para mostrar los productos en el carrito y el total
+  function mostrarCarrito() {
+      const carritoLista = document.getElementById('carrito-lista');
+      const totalElemento = document.getElementById('total');
+
+      carritoLista.innerHTML = '';
+
+      let total = 0;
+
+      carrito.forEach((producto, index) => {
+          const li = document.createElement('li');
+          li.textContent = `${producto.nombre} - $${producto.precio.toFixed(1)}`;
+
+          const btnEliminar = document.createElement('button');
+          btnEliminar.textContent = 'Eliminar';
+          btnEliminar.onclick = () => eliminarDelCarrito(index);
+
+          li.appendChild(btnEliminar);
+          carritoLista.appendChild(li);
+
+          total += producto.precio;
+      });
+      sessionStorage.setItem('valortotal', total);
+      totalElemento.textContent = `Total: $${total.toFixed(2)}`;
+      
+  }
+</script>
+
+
+<script>
+
+  // Función para realizar el pago (puedes personalizar según tus necesidades)
+  function pagar() {
+    
+    sessionStorage.setItem('carrito', JSON.stringify(carrito));
+    
+    // Guarda el estado actual del carrito en sessionStorage
+    sessionStorage.setItem('carrito', JSON.stringify(carrito));
+   
+   
+    
+    // Actualiza la lista del carrito
+    mostrarCarrito();
+
+    // Redirecciona a la página 2
+    window.location.href = 'micarrito.html';
+
+  }
+
+  // Llama a mostrarCarrito al cargar la página para mostrar el carrito existente
+  mostrarCarrito();
+</script>
+</div>
+<script src="buscar.js"></script>
+</body>
+</html>
